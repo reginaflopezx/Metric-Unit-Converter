@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+namespace Lopez
+{
+    class Program
+    {
+		static void Main(string[] args)
+        {
+            List<double>results = new List<double>();
+            
+            bool running = true;
+            
+            while(running == true){
+			Console.WriteLine("=====METRIC UNIT CONVERTER CALCULATOR=====");
+			Console.Write("Enter a value to convert: ");
+			double value = Convert.ToDouble(Console.ReadLine());
+			
+			Console.WriteLine("Choose a unit: ");
+			Console.WriteLine("a. Inches");
+			Console.WriteLine("b. Centimeter");
+			Console.WriteLine("c. Millimeter");
+			Console.WriteLine("d. Kilometer");
+			Console.WriteLine("e. Meter");
+			Console.WriteLine("f. Foot");
+			Console.Write("Your input: ");
+			char unit = Convert.ToChar(Console.ReadLine());
+			
+			switch(unit){
+				case 'a': 
+				    InchesTo(value);
+				    results.Add(value);
+				    break;
+				
+				case 'b':
+				    CmTo(value);
+				    results.Add(value);
+    			    break;
+				
+				case 'c':
+				    MmTo(value);
+				    results.Add(value);
+				    break;
+				
+				case 'd':
+				    KmTo(value);
+				    results.Add(value);
+				    break;
+				
+				case 'e':
+				    MeterTo(value);
+				    results.Add(value);
+				    break;
+				
+				case 'f':
+				    FootTo(value);
+				    results.Add(value);
+				    break;
+				
+				default:
+					Console.WriteLine("Invalid input.");
+					break;
+			    }
+			   
+			 Console.WriteLine("Do you want to use the calculator again? Y/N");
+			 Console.Write("Enter input: ");
+			 string choice = Console.ReadLine();
+			    if(choice == "N" || choice == "n"){
+			        Console.WriteLine("Thank you for using the calculator!");
+			        Console.WriteLine("List of Results: ");
+                        foreach (double result in results){
+                            Console.WriteLine(result);
+                            }
+                            return;
+			        running = false;
+			        
+			 }
+        }
+    }
+		public static void InchesTo (double value){
+		    Console.WriteLine("{0} INCHES TO: ", value);
+			Console.WriteLine("{0} Centimeters", value*2.54);
+			Console.WriteLine("{0} Millimeters", value*25.4);
+			Console.WriteLine("{0} Kilometers", value/393.70);
+			Console.WriteLine("{0} Meter", value*0.0254);
+			Console.WriteLine("{0} Feet", value*0.083);
+		}
+		
+		public static void CmTo (double value){
+		    Console.WriteLine("{0} CENTIMETERS TO: ", value);
+			Console.WriteLine("{0} Inches", value/2.54);
+			Console.WriteLine("{0} Millimeters", value*10);
+			Console.WriteLine("{0} Kilometers", value/ 0.00001);
+			Console.WriteLine("{0} Meter", value*0.01);
+			Console.WriteLine("{0} Feet", value*0.0328);
+		
+	}
+	    public static void MmTo (double value){
+	        Console.WriteLine("{0} MILLIMETERS TO: ", value);
+			Console.WriteLine("{0} Inches", value*0.039);
+			Console.WriteLine("{0} Centimeters", value/10);
+			Console.WriteLine("{0} Kilometers", value/1000000);
+			Console.WriteLine("{0} Meter", value/1000);
+			Console.WriteLine("{0} Feet", value/305);
+		
+	}
+	    public static void KmTo (double value){
+	        Console.WriteLine("{0} KILOMETERS TO: ", value);
+			Console.WriteLine("{0} Inches", value*39370.1);
+			Console.WriteLine("{0} Centimeters", value*100000);
+			Console.WriteLine("{0} Millimeters", value*1000000);
+			Console.WriteLine("{0} Meter", value*1000);
+			Console.WriteLine("{0} Feet", value*3280.84);
+		
+	}
+	    public static void MeterTo (double value){
+	        Console.WriteLine("{0} METERS TO: ", value);
+			Console.WriteLine("{0} Inches", value*39.37);
+			Console.WriteLine("{0} Centimeters", value*100);
+			Console.WriteLine("{0} Millimeters", value*1000);
+			Console.WriteLine("{0} Kilometer", value/1000);
+			Console.WriteLine("{0} Feet", value*3.28084);
+		
+	}
+	    public static void FootTo (double num1){
+	        Console.WriteLine("{0} FEET TO: ", num1);
+			Console.WriteLine("{0} Inches", num1*12);
+			Console.WriteLine("{0} Centimeters", num1*30.48);
+			Console.WriteLine("{0} Millimeters", num1*304.8);
+			Console.WriteLine("{0} Kilometer", num1/3280.84);
+			Console.WriteLine("{0} Meter", num1*0.304);
+		
+	}
+    }
+}
+
